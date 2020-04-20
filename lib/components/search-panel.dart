@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts_app/components/search-text-field.dart';
+import 'package:flutter_contacts_app/utility/constants.dart';
 
 class ContactSearchPanel extends StatefulWidget {
   @override
@@ -30,12 +31,14 @@ class _ContactSearchPanelState extends State<ContactSearchPanel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 0),
-        child: Column(
-          children: <Widget>[
-            SearchTextField(
-                controller: controller, hint: 'Search for friend...'),
-          ],
-        ));
+      margin: EdgeInsets.only(top: 0),
+      child: Column(
+        children: <Widget>[
+          SearchTextField(controller: controller, hint: 'Search for friend...'),
+          //SearchTextBox()
+        ],
+      ),
+      decoration: BoxDecoration(color: Constants.black_secondary),
+    );
   }
 }

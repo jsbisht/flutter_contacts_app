@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: APP_TITLE,
       theme: ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: ContactSuggestionPage(),
     );
@@ -24,21 +24,5 @@ class ContactSuggestionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: SafeArea(child: ContactSearchPanel()));
-  }
-}
-
-class CircularProfileLogo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(100.0),
-      width: 100.0,
-      height: 100.0,
-      decoration: BoxDecoration(
-        color: Colors.black12,
-        shape: BoxShape.circle,
-        //image: DecorationImage(image: NetworkImage("bit.ly/flutter_tiger")),
-      ),
-    );
   }
 }

@@ -6,23 +6,40 @@ class SearchTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
 
+  Color hexToColor(String code) {
+    return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.all(15.0),
-        child: TextField(
-          controller: controller,
-          keyboardType: TextInputType.number,
-          style: TextStyle(
-              color: Colors.green[700],
-              fontWeight: FontWeight.w300,
-              fontSize: 24.0),
-          decoration: InputDecoration(
-            prefixIcon: Icon(Icons.border_all),
-            filled: true,
-            fillColor: Colors.grey[300],
-            hintText: hint,
-          ),
+        child: new Column(
+            children : [
+              new TextFormField(
+                decoration: new InputDecoration(
+                  labelText: hint,
+                  fillColor: Colors.white,
+                  border: new OutlineInputBorder(
+                    borderRadius: new BorderRadius.circular(25.0),
+                    borderSide: new BorderSide(
+                    ),
+                  ),
+                ),
+                validator: (val) {
+                  if(val.length==0) {
+                    return "Email cannot be empty";
+                  }else{
+                    return null;
+                  }
+                },
+                keyboardType: TextInputType.text,
+                style: new TextStyle(
+                  fontFamily: "Poppins",
+                ),
+              ),
+            ]
         ));
   }
 }
+
